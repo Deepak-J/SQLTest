@@ -1,6 +1,7 @@
 package com.example.iamanidiot.appsql;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.widget.Toast;
@@ -68,4 +69,25 @@ public class DataSource
         return initDB.isOpen();
     }
 
+    public int countActivities()
+    {
+        int countActivities = 0;
+        initDB = dbConnect.getWritableDatabase();
+        try
+        {
+            String countQuery = "SELECT count(ID) FROM ACTIVITY";
+            Cursor resultCount = initDB.rawQuery(countQuery, null);
+            resultCount.moveToFirst();
+            resultCount.close();
+            return resultCount.getCount();
+        }
+        catch (Exception w)
+        {
+            Log.e(DATA_LOGTAG, "Cursor - countActivities\n" + w.getMessage());
+            Toast.makeText(thisContext, "Cursor - countActivities\n" + w.getMessage(), Toast.LENGTH_LONG).show();
+        }
+        initDB.close();
+
+        return countActivities;
+    }
 }

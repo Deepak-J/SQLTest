@@ -23,6 +23,7 @@ public class HomeScreen extends Activity
         setContentView(R.layout.activity_home_screen);
         TextView statusCheck = (TextView) findViewById(R.id.statusCheck);
 
+
         dSource = new DataSource(getApplicationContext());
 
         Log.i(MAINLOGTAG, "In the OnCreate for HomeScreen");
@@ -32,6 +33,12 @@ public class HomeScreen extends Activity
         else
             statusCheck.setText("No Success");
         statusCheck.setVisibility(View.VISIBLE);
+    }
+
+    public void checkActivities(View view)
+    {
+        TextView activityCountText = (TextView) findViewById(R.id.activityCountText);
+        activityCountText.setText("The number of activities: \n" + dSource.countActivities());
     }
 
 }

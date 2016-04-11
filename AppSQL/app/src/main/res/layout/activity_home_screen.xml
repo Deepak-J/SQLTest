@@ -14,8 +14,30 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:id="@+id/statusCheck"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="66dp"
-        android:visibility="invisible" />
+        android:visibility="invisible"
+        android:layout_alignRight="@+id/checkActivitiesButton"
+        android:layout_alignEnd="@+id/checkActivitiesButton" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/checkActivitiesButton"
+        android:id="@+id/checkActivitiesButton"
+        android:onClick="checkActivities"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/checkActivitiesButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="42dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="65dp"
+        android:visibility="invisible"
+        android:id="@+id/activityCountText" />
 </RelativeLayout>
